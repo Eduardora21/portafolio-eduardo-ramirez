@@ -43,6 +43,7 @@
     <div class="space-x-6 text-sm text-gray-300 hidden md:block">
       <a href="#consola" class="hover:text-cyber-neon transition-colors">Consola</a>
       <a href="#proyectos" class="hover:text-cyber-neon transition-colors">Proyectos</a>
+      <a href="#experiencia" class="hover:text-cyber-neon transition-colors">Experiencia</a>
       <a href="#habilidades" class="hover:text-cyber-neon transition-colors">Habilidades</a>
       <a href="#contacto" class="hover:text-cyber-neon transition-colors">Contacto</a>
     </div>
@@ -66,6 +67,7 @@
           <span class="text-gray-400 py-1 font-bold">Comandos rápidos:</span>
           <button onclick="runCommand('sobre-mi')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">sobre-mi</button>
           <button onclick="runCommand('proyectos')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">proyectos</button>
+          <button onclick="runCommand('experiencia')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">experiencia</button>
           <button onclick="runCommand('habilidades')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">habilidades</button>
           <button onclick="runCommand('certificaciones')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">certificaciones</button>
           <button onclick="runCommand('limpiar')" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-1 rounded transition-colors">limpiar</button>
@@ -87,14 +89,14 @@
         <span>&lt;/&gt;</span> Proyectos Destacados
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 p-6 rounded-xl transition-all shadow-lg space-y-3">
-          <h3 class="text-xl font-bold text-white">Dashboard Deportivo - Invictus Quebradas</h3>
-          <p class="text-gray-400 text-sm">
-            Sistema web Full-Stack para la administración de un club deportivo con pizarra táctica interactiva, gestión de inventario, pagos y jugadores.
+          <h3 class="text-lg font-bold text-white">Dashboard Deportivo - Invictus Quebradas</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Sistema web Full-Stack para la administración de un club de fútbol. Gestión de jugadores, inventario, pagos y pizarra táctica interactiva mediante API REST.
           </p>
-          <div class="flex flex-wrap gap-2 text-xs">
+          <div class="flex flex-wrap gap-1.5 text-[11px]">
             <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Node.js</span>
             <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Express.js</span>
             <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">MySQL</span>
@@ -102,23 +104,73 @@
           </div>
         </div>
 
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 p-6 rounded-xl transition-all shadow-lg space-y-3">
+          <h3 class="text-lg font-bold text-white">English Quest</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Plataforma web gamificada para aprendizaje de inglés en niños con autenticación, roles, sistema de XP, niveles, vidas y progreso dinámico.
+          </p>
+          <div class="flex flex-wrap gap-1.5 text-[11px]">
+            <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP (PDO)</span>
+            <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL</span>
+            <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Gamificación</span>
+          </div>
+        </div>
+
         <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 p-6 rounded-xl transition-all shadow-lg space-y-3 flex flex-col justify-between">
           <div class="space-y-3">
-            <h3 class="text-xl font-bold text-white">Sitio Web para Contratista</h3>
-            <p class="text-gray-400 text-sm">
-              Plataforma web con panel administrativo, autenticación de usuarios y catálogo interactivo de proyectos con carga de imágenes.
+            <h3 class="text-lg font-bold text-white">Sitio Web para Contratista</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">
+              Aplicación web con autenticación, panel administrativo y gestión de proyectos con carga de imágenes usando PDO y transacciones.
             </p>
-            <div class="flex flex-wrap gap-2 text-xs">
+            <div class="flex flex-wrap gap-1.5 text-[11px]">
               <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
               <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
-              <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">HTML/CSS</span>
+              <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Transacciones</span>
             </div>
           </div>
-          
           <div class="pt-2">
             <a href="https://ramirez-contratista.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold">
               Ver sitio web <span>→</span>
             </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="experiencia" class="space-y-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
+        <span>💼</span> Experiencia y Educación
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="bg-cyber-card border border-gray-800 p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-lg font-bold text-white">Pasantía - Beta Tech</h3>
+              <p class="text-xs text-cyber-neon">Diseño UI/UX &amp; Análisis de Requerimientos</p>
+            </div>
+            <span class="text-xs text-gray-400 border border-gray-700 px-2 py-0.5 rounded">Oct 2022 - Dic 2022</span>
+          </div>
+          <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+            <li>Elaboración de prototipos de interfaz en Penpot.</li>
+            <li>Diseño de flujos de usuario para sistema web (rol administrador).</li>
+            <li>Análisis básico de requerimientos y trabajo colaborativo.</li>
+          </ul>
+        </div>
+
+        <div class="bg-cyber-card border border-gray-800 p-6 rounded-xl space-y-3">
+          <h3 class="text-lg font-bold text-white">Educación Académica</h3>
+          <div class="space-y-3 text-xs">
+            <div>
+              <p class="font-bold text-cyber-neon">Ingeniería en Sistemas de la Computación</p>
+              <p class="text-gray-400">Universidad Fidélitas (2023 - En curso)</p>
+            </div>
+            <div>
+              <p class="font-bold text-gray-200">Técnico Medio en Informática (Desarrollo de Software)</p>
+              <p class="text-gray-400">IPEC de Santo Domingo de Heredia (Feb 2021 - Dic 2022)</p>
+            </div>
           </div>
         </div>
 
@@ -133,32 +185,32 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Lenguajes &amp; Web</h3>
+          <h3 class="text-lg font-bold text-cyber-neon">Lenguajes &amp; Frontend</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
-            <li>• JavaScript / Node.js</li>
-            <li>• PHP / Express.js</li>
-            <li>• HTML5 / CSS3 / Bootstrap</li>
-            <li>• Java</li>
+            <li>• Java, JavaScript, PHP</li>
+            <li>• HTML5, CSS3</li>
+            <li>• Tailwind CSS, Bootstrap</li>
+            <li>• Diseño Responsivo</li>
           </ul>
         </div>
 
         <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Herramientas &amp; BD</h3>
+          <h3 class="text-lg font-bold text-cyber-neon">Backend &amp; Herramientas</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
-            <li>• Docker</li>
-            <li>• Git &amp; GitHub</li>
-            <li>• MySQL</li>
-            <li>• API REST / POO</li>
+            <li>• Node.js / Express.js</li>
+            <li>• MySQL / SQL / PDO</li>
+            <li>• GitHub / GitHub Pages / Docker</li>
+            <li>• APIs REST / POO / Scrum</li>
           </ul>
         </div>
 
         <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Certificaciones</h3>
+          <h3 class="text-lg font-bold text-cyber-neon">Certificaciones &amp; Idiomas</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
+            <li>• CCNA: Fundamentos de Conmutación (Cisco)</li>
+            <li>• Introduction to Networks &amp; IoT (Cisco)</li>
             <li>• Scrum Fundamentals Certified</li>
-            <li>• CCNA: Conmutación y Redes (Cisco)</li>
-            <li>• Introduction to Networks (Cisco)</li>
-            <li>• Introduction to IoT (Cisco)</li>
+            <li>• Inglés: Intermedio (B1) / Español: Nativo</li>
           </ul>
         </div>
 
@@ -176,7 +228,7 @@
 
       <div class="flex flex-wrap justify-center gap-4">
         <a href="https://wa.me/50671807166?text=Hola%20Eduardo,%20me%20interesa%20contactarte" target="_blank" class="bg-green-600/20 text-green-400 border border-green-500/40 px-5 py-2.5 rounded-lg hover:bg-green-600/30 transition-all flex items-center gap-2 font-bold text-sm">
-          <span>💬</span> WhatsApp
+          <span>💬</span> WhatsApp: (506) 7180-7166
         </a>
         <a href="mailto:ramirezreynosae@gmail.com" class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/40 px-5 py-2.5 rounded-lg hover:bg-cyber-neon/20 transition-all flex items-center gap-2 text-sm font-bold">
           <span>✉️</span> Correo Electrónico
@@ -189,29 +241,26 @@
       <div class="max-w-xl mx-auto bg-cyber-card border border-gray-800 rounded-xl p-6 shadow-lg space-y-4">
         <h3 class="text-lg font-bold text-cyber-neon text-center mb-4">Enviar Mensaje Directo</h3>
         
-       
-        
         <form id="contact-form" class="space-y-4">
-  <div>
-    <label class="block text-xs text-gray-400 mb-1">Nombre</label>
-    <input type="text" name="name" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
-  </div>
-  <div>
-    <label class="block text-xs text-gray-400 mb-1">Correo Electrónico</label>
-    <input type="email" name="email" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
-  </div>
-  <div>
-    <label class="block text-xs text-gray-400 mb-1">Mensaje</label>
-    <textarea name="message" rows="4" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon"></textarea>
-  </div>
-  
-  <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-cyber-neon to-cyber-purple text-black font-bold py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
-    Enviar Mensaje
-  </button>
-  
-  <div id="form-status" class="text-xs text-center font-bold hidden"></div>
-</form>
-
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Nombre</label>
+            <input type="text" name="name" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Correo Electrónico</label>
+            <input type="email" name="email" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Mensaje</label>
+            <textarea name="message" rows="4" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon"></textarea>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-cyber-neon to-cyber-purple text-black font-bold py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
+            Enviar Mensaje
+          </button>
+          
+          <div id="form-status" class="text-xs text-center font-bold hidden"></div>
+        </form>
       </div>
 
     </section>
@@ -223,12 +272,12 @@
   </footer>
 
   <!-- Botón Flotante Descargar CV -->
-<a href="CV_Eduardo_Ramirez.pdf" download="CV_Eduardo_Ramirez.pdf" class="fixed bottom-6 right-6 z-50 bg-cyber-neon/10 hover:bg-cyber-neon text-cyber-neon hover:text-black border border-cyber-neon px-4 py-3 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2 font-bold text-xs md:text-sm backdrop-blur-md">
-  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-    <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-  </svg>
-  <span>Descargar CV</span>
-</a>
+  <a href="CV_Eduardo_Ramirez.pdf" download="CV_Eduardo_Ramirez.pdf" class="fixed bottom-6 right-6 z-50 bg-cyber-neon/10 hover:bg-cyber-neon text-cyber-neon hover:text-black border border-cyber-neon px-4 py-3 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2 font-bold text-xs md:text-sm backdrop-blur-md">
+    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+    </svg>
+    <span>Descargar CV</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
