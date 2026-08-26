@@ -189,23 +189,29 @@
       <div class="max-w-xl mx-auto bg-cyber-card border border-gray-800 rounded-xl p-6 shadow-lg space-y-4">
         <h3 class="text-lg font-bold text-cyber-neon text-center mb-4">Enviar Mensaje Directo</h3>
         
+       
+        
         <form id="contact-form" class="space-y-4">
-          <div>
-            <label class="block text-xs text-gray-400 mb-1">Nombre</label>
-            <input type="text" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
-          </div>
-          <div>
-            <label class="block text-xs text-gray-400 mb-1">Correo Electrónico</label>
-            <input type="email" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
-          </div>
-          <div>
-            <label class="block text-xs text-gray-400 mb-1">Mensaje</label>
-            <textarea rows="4" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-gradient-to-r from-cyber-neon to-cyber-purple text-black font-bold py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
-            Enviar Mensaje
-          </button>
-        </form>
+  <div>
+    <label class="block text-xs text-gray-400 mb-1">Nombre</label>
+    <input type="text" name="name" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+  </div>
+  <div>
+    <label class="block text-xs text-gray-400 mb-1">Correo Electrónico</label>
+    <input type="email" name="email" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+  </div>
+  <div>
+    <label class="block text-xs text-gray-400 mb-1">Mensaje</label>
+    <textarea name="message" rows="4" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon"></textarea>
+  </div>
+  
+  <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-cyber-neon to-cyber-purple text-black font-bold py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
+    Enviar Mensaje
+  </button>
+  
+  <div id="form-status" class="text-xs text-center font-bold hidden"></div>
+</form>
+
       </div>
 
     </section>

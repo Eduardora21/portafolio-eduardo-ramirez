@@ -1,7 +1,7 @@
 const input = document.getElementById('command-input');
 const screen = document.getElementById('terminal-screen');
 
-// Registro de comandos con mi CV [cite: 1]
+// Registro de comandos
 const commands = {
   'ayuda': `Comandos disponibles:<br>
   - <span class="text-cyber-neon">sobre-mi</span>: Resumen profesional y perfil.<br>
@@ -48,31 +48,84 @@ function runCommand(cmdName) {
 }
 
 // Escucha el teclado al presionar Enter
-input.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    const cmd = input.value.trim().toLowerCase();
-    
-    if (cmd === 'limpiar') {
-      screen.innerHTML = '';
-    } else if (commands[cmd]) {
-      printLine(`> ${input.value}`, 'text-gray-400');
-      printLine(commands[cmd], 'text-green-400');
-    } else if (cmd === 'ayuda') {
-      printLine(`> ${input.value}`, 'text-gray-400');
-      printLine(commands['ayuda'], 'text-green-400');
-    } else if (cmd !== '') {
-      printLine(`> ${input.value}`, 'text-gray-400');
-      printLine(`Comando no reconocido: "${cmd}". Escribe <span class="text-cyber-neon">ayuda</span> para ver las opciones.`, 'text-red-400');
-    }
+if (input) {
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const cmd = input.value.trim().toLowerCase();
+      
+      if (cmd === 'limpiar') {
+        screen.innerHTML = '';
+      } else if (commands[cmd]) {
+        printLine(`> ${input.value}`, 'text-gray-400');
+        printLine(commands[cmd], 'text-green-400');
+      } else if (cmd === 'ayuda') {
+        printLine(`> ${input.value}`, 'text-gray-400');
+        printLine(commands['ayuda'], 'text-green-400');
+      } else if (cmd !== '') {
+        printLine(`> ${input.value}`, 'text-gray-400');
+        printLine(`Comando no reconocido: "${cmd}". Escribe <span class="text-cyber-neon">ayuda</span> para ver las opciones.`, 'text-red-400');
+      }
 
-    input.value = '';
-    screen.scrollTop = screen.scrollHeight;
-  }
-});
+      input.value = '';
+      screen.scrollTop = screen.scrollHeight;
+    }
+  });
+}
 
 function printLine(text, colorClass) {
   const p = document.createElement('p');
   p.className = `${colorClass} my-1`;
   p.innerHTML = text;
   screen.appendChild(p);
+}
+
+// Manejo asíncrono del formulario con Formspree
+const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const formStatus = document.getElementById('form-status');
+
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Enviando...';
+    formStatus.classList.add('hidden');
+
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+
+    fetch('https://formspree.io/f/mqpkzkya', {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        formStatus.textContent = '¡Mensaje enviado con éxito! Me pondré en contacto pronto.';
+        formStatus.className = 'text-xs text-center font-bold text-green-400 mt-2 block';
+        form.reset();
+      } else {
+        return response.json().then(data => {
+          if (data.hasOwnProperty('errors')) {
+            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+          } else {
+            formStatus.textContent = 'Error al enviar el formulario.';
+          }
+          formStatus.className = 'text-xs text-center font-bold text-red-400 mt-2 block';
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error de envio:', error);
+      formStatus.textContent = 'Ocurrió un error al enviar. Intenta de nuevo.';
+      formStatus.className = 'text-xs text-center font-bold text-red-400 mt-2 block';
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Enviar Mensaje';
+    });
+  });
 }
