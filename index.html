@@ -27,14 +27,37 @@
       }
     }
   </script>
+  <style>
+    /* Cuadrícula cyber sutil en el fondo */
+    .cyber-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    }
+    /* Scrollbar personalizada para la terminal */
+    #terminal-screen::-webkit-scrollbar {
+      width: 6px;
+    }
+    #terminal-screen::-webkit-scrollbar-track {
+      background: #09090d;
+    }
+    #terminal-screen::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 3px;
+    }
+    #terminal-screen::-webkit-scrollbar-thumb:hover {
+      background: #00f0ff;
+    }
+  </style>
 </head>
-<body class="bg-cyber-bg text-cyber-text font-mono min-h-screen flex flex-col">
+<body class="bg-cyber-bg cyber-grid text-cyber-text font-mono min-h-screen flex flex-col selection:bg-cyber-neon selection:text-black">
 
-  <nav class="sticky top-0 z-50 bg-cyber-bg/80 backdrop-blur-md border-b border-cyber-neon/20 px-6 py-4 flex justify-between items-center">
+  <nav class="sticky top-0 z-50 bg-cyber-bg/85 backdrop-blur-md border-b border-cyber-neon/20 px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <div class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-purple">
+      <a href="#consola" class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-purple hover:opacity-80 transition-opacity">
         &lt;ER /&gt;
-      </div>
+      </a>
       <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/30">
         <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
         Disponible
@@ -49,88 +72,114 @@
     </div>
   </nav>
 
-  <div class="max-w-5xl mx-auto px-4 py-8 space-y-16 w-full">
+  <div class="max-w-5xl mx-auto px-4 py-10 space-y-20 w-full">
 
+    <!-- SECCIÓN CONSOLA INTERACTIVA -->
     <section id="consola" class="space-y-6">
-      <div class="text-center space-y-2">
+      <div class="text-center space-y-3">
+        <div class="inline-block px-3 py-1 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 text-purple-300 text-xs mb-1">
+          Full-Stack Web &amp; AI Integration
+        </div>
         <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-blue-400 to-cyber-purple">
           Eduardo Ramírez
         </h1>
-        <p class="text-gray-400 text-base md:text-lg">
-          Desarrollador Web Junior | Estudiante de Ingeniería en Sistemas
+        <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto">
+          Desarrollador Web Junior | Estudiante de Ingeniería en Sistemas de la Computación
         </p>
       </div>
 
-      <div class="bg-cyber-card border border-cyber-neon/30 rounded-xl p-5 shadow-[0_0_20px_rgba(0,240,255,0.1)] space-y-4">
+      <!-- Ventana estilo Terminal -->
+      <div class="bg-cyber-card border border-cyber-neon/30 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.12)]">
         
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="text-gray-400 py-1 font-bold">Comandos rápidos:</span>
-          <button onclick="runCommand('sobre-mi')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">sobre-mi</button>
-          <button onclick="runCommand('proyectos')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">proyectos</button>
-          <button onclick="runCommand('experiencia')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">experiencia</button>
-          <button onclick="runCommand('habilidades')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">habilidades</button>
-          <button onclick="runCommand('certificaciones')" class="bg-cyber-neon/10 hover:bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-colors">certificaciones</button>
-          <button onclick="runCommand('limpiar')" class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-1 rounded transition-colors">limpiar</button>
+        <!-- Barra superior de ventana -->
+        <div class="bg-black/90 px-4 py-2.5 border-b border-gray-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+          </div>
+          <span class="text-xs text-gray-500">eduardo@portfolio:~/ramirez-dev</span>
+          <span class="text-[10px] text-cyber-neon/70">bash</span>
         </div>
 
-        <div id="terminal-screen" class="bg-black/80 border border-gray-800 rounded-lg p-4 text-sm font-mono h-64 overflow-y-auto space-y-2">
-          <p class="text-gray-400">Bienvenido. Escribe un comando o usa las opciones de arriba para navegar.</p>
-        </div>
+        <div class="p-5 space-y-4">
+          <div class="flex flex-wrap gap-2 text-xs items-center">
+            <span class="text-gray-400 py-1 font-bold">Comandos:</span>
+            <button onclick="runCommand('sobre-mi')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">sobre-mi</button>
+            <button onclick="runCommand('proyectos')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">proyectos</button>
+            <button onclick="runCommand('vita-sanctorum')" class="bg-cyber-purple/20 hover:bg-cyber-purple/35 text-purple-300 border border-purple-500/40 px-2.5 py-1 rounded transition-all">vita-sanctorum ✨</button>
+            <button onclick="runCommand('experiencia')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">experiencia</button>
+            <button onclick="runCommand('habilidades')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">habilidades</button>
+            <button onclick="runCommand('certificaciones')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">certificaciones</button>
+            <button onclick="runCommand('limpiar')" class="bg-red-500/10 hover:bg-red-500/25 text-red-400 border border-red-500/30 px-2.5 py-1 rounded transition-all ml-auto">limpiar</button>
+          </div>
 
-        <div class="flex items-center bg-black/60 border border-cyber-neon/40 rounded-lg px-3 py-2">
-          <span class="text-cyber-neon font-bold mr-2">&gt;</span>
-          <input type="text" id="command-input" class="bg-transparent text-cyber-text w-full focus:outline-none text-sm" placeholder="Escribe un comando (ej. ayuda)...">
+          <div id="terminal-screen" class="bg-black/80 border border-gray-800 rounded-lg p-4 text-xs md:text-sm font-mono h-64 overflow-y-auto space-y-2.5 leading-relaxed">
+            <p class="text-gray-400">Bienvenido al sistema v2.6. Haz clic en un comando o escribe <span class="text-cyber-neon">'ayuda'</span> para explorar.</p>
+          </div>
+
+          <div class="flex items-center bg-black/70 border border-cyber-neon/40 focus-within:border-cyber-neon focus-within:shadow-[0_0_10px_rgba(0,240,255,0.2)] rounded-lg px-3 py-2 transition-all">
+            <span class="text-cyber-neon font-bold mr-2">eduardo@dev:~$</span>
+            <input type="text" id="command-input" autocomplete="off" class="bg-transparent text-cyber-text w-full focus:outline-none text-xs md:text-sm" placeholder="Escribe un comando (ej. proyectos, vita-sanctorum, ayuda)...">
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- SECCIÓN PROYECTOS -->
     <section id="proyectos" class="space-y-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
-        <span>&lt;/&gt;</span> Proyectos Destacados
-      </h2>
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
+          <span>&lt;/&gt;</span> Proyectos Destacados
+        </h2>
+        <span class="text-xs text-gray-500">4 aplicaciones desplegadas / en repositorio</span>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- 1. Vita Sanctorum (Nuevo Proyecto Destacado) -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 rounded-xl overflow-hidden transition-all shadow-lg flex flex-col justify-between group">
+        <!-- 1. Vita Sanctorum -->
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/index.png" alt="Vita Sanctorum - Santoral Católico" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+              <img src="img/index.png" alt="Vita Sanctorum - Santoral Católico" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm border border-cyber-neon/50 text-cyber-neon text-[10px] px-2.5 py-1 rounded-full font-bold">
+                ✨ Destacado
+              </div>
             </div>
             <div class="p-6 space-y-3">
               <div class="flex items-center justify-between gap-2">
                 <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Vita Sanctorum</h3>
-                <span class="text-[10px] bg-cyber-neon/20 text-cyber-neon border border-cyber-neon/40 px-2 py-0.5 rounded-full font-semibold">Gemini AI</span>
+                <span class="text-[10px] bg-cyber-purple/20 text-purple-300 border border-purple-500/40 px-2 py-0.5 rounded-full font-semibold">Gemini AI</span>
               </div>
               <p class="text-gray-400 text-xs leading-relaxed">
-                Plataforma web del santoral católico con consulta de biografías, festividades y patronazgos. Cuenta con panel administrativo para gestión de registros/imágenes, autenticación de usuarios e integración de la API de Gemini mediante endpoint PHP para reflexiones y virtudes.
+                Plataforma web del santoral católico para consultar biografías, festividades y patronazgos. Incluye panel administrativo para gestionar registros e imágenes, autenticación segura e integración de Gemini AI mediante endpoint PHP para generar reflexiones sobre virtudes y enseñanzas.
               </p>
               <div class="flex flex-wrap gap-1.5 text-[11px]">
                 <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
                 <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
                 <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">JavaScript</span>
                 <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Gemini API</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Auth</span>
+                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Auth Admin</span>
               </div>
             </div>
           </div>
-          <div class="px-6 pb-6 pt-2">
-            <a href="https://vita-sanctorum.kesug.com/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold">
-              Ver sitio web <span>→</span>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
+            <a href="https://vita-sanctorum.kesug.com/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
+              Visitar plataforma en vivo <span>↗</span>
             </a>
           </div>
         </div>
 
         <!-- 2. Sitio Web Contratista -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 rounded-xl overflow-hidden transition-all shadow-lg flex flex-col justify-between group">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/contratista.jpg" alt="Sitio Web Contratista" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+              <img src="img/contratista.jpg" alt="Sitio Web Contratista" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6 space-y-3">
               <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Sitio Web para Contratista</h3>
               <p class="text-gray-400 text-xs leading-relaxed">
-                Aplicación web con autenticación, panel administrativo y gestión de proyectos con carga de imágenes usando PDO y transacciones.
+                Aplicación web con autenticación, panel administrativo y gestión de proyectos con carga de imágenes usando PDO y transacciones en base de datos.
               </p>
               <div class="flex flex-wrap gap-1.5 text-[11px]">
                 <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
@@ -139,18 +188,18 @@
               </div>
             </div>
           </div>
-          <div class="px-6 pb-6 pt-2">
-            <a href="https://ramirez-contratista.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold">
-              Ver sitio web <span>→</span>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
+            <a href="https://ramirez-contratista.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
+              Ver sitio web <span>↗</span>
             </a>
           </div>
         </div>
 
         <!-- 3. Dashboard Deportivo -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 rounded-xl overflow-hidden transition-all shadow-lg flex flex-col justify-between group">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/dashboard.jpg" alt="Dashboard Deportivo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+              <img src="img/dashboard.jpg" alt="Dashboard Deportivo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6 space-y-3">
               <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Dashboard Deportivo - Invictus Quebradas</h3>
@@ -165,18 +214,18 @@
               </div>
             </div>
           </div>
-          <div class="px-6 pb-6 pt-2">
-            <a href="https://github.com/Eduardora21/invictus-dashboard" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold">
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
+            <a href="https://github.com/Eduardora21/invictus-dashboard" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
               Ver repositorio GitHub <span>→</span>
             </a>
           </div>
         </div>
 
         <!-- 4. English Quest -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/50 rounded-xl overflow-hidden transition-all shadow-lg flex flex-col justify-between group">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/english-quest.jpg" alt="English Quest" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+              <img src="img/english-quest.jpg" alt="English Quest" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6 space-y-3">
               <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">English Quest</h3>
@@ -190,8 +239,8 @@
               </div>
             </div>
           </div>
-          <div class="px-6 pb-6 pt-2">
-            <a href="https://github.com/Eduardora21/english-quest" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold">
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
+            <a href="https://github.com/Eduardora21/english-quest" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
               Ver repositorio GitHub <span>→</span>
             </a>
           </div>
@@ -200,6 +249,7 @@
       </div>
     </section>
 
+    <!-- SECCIÓN EXPERIENCIA -->
     <section id="experiencia" class="space-y-6">
       <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
         <span>💼</span> Experiencia y Educación
@@ -207,13 +257,13 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <div class="bg-cyber-card border border-gray-800 p-6 rounded-xl space-y-3">
-          <div class="flex justify-between items-start">
+        <div class="bg-cyber-card border border-gray-800 hover:border-gray-700 transition-colors p-6 rounded-xl space-y-3">
+          <div class="flex justify-between items-start gap-2">
             <div>
               <h3 class="text-lg font-bold text-white">Pasantía - Beta Tech</h3>
               <p class="text-xs text-cyber-neon">Diseño UI/UX &amp; Análisis de Requerimientos</p>
             </div>
-            <span class="text-xs text-gray-400 border border-gray-700 px-2 py-0.5 rounded">Oct 2022 - Dic 2022</span>
+            <span class="text-xs text-gray-400 border border-gray-700 px-2 py-0.5 rounded shrink-0">Oct 2022 - Dic 2022</span>
           </div>
           <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
             <li>Elaboración de prototipos de interfaz en Penpot.</li>
@@ -222,7 +272,7 @@
           </ul>
         </div>
 
-        <div class="bg-cyber-card border border-gray-800 p-6 rounded-xl space-y-3">
+        <div class="bg-cyber-card border border-gray-800 hover:border-gray-700 transition-colors p-6 rounded-xl space-y-3">
           <h3 class="text-lg font-bold text-white">Educación Académica</h3>
           <div class="space-y-3 text-xs">
             <div>
@@ -239,6 +289,7 @@
       </div>
     </section>
 
+    <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades" class="space-y-6">
       <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
         <span>⚡</span> Habilidades y Certificaciones
@@ -246,7 +297,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
           <h3 class="text-lg font-bold text-cyber-neon">Lenguajes &amp; Frontend</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
             <li>• Java, JavaScript, PHP</li>
@@ -256,17 +307,17 @@
           </ul>
         </div>
 
-        <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
           <h3 class="text-lg font-bold text-cyber-neon">Backend &amp; Herramientas</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
             <li>• Node.js / Express.js</li>
             <li>• MySQL / SQL / PDO</li>
             <li>• GitHub / GitHub Pages / Docker</li>
-            <li>• APIs REST / POO / Scrum</li>
+            <li>• APIs REST / Gemini AI / Scrum</li>
           </ul>
         </div>
 
-        <div class="bg-cyber-card border border-gray-800 p-5 rounded-xl space-y-3">
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
           <h3 class="text-lg font-bold text-cyber-neon">Certificaciones &amp; Idiomas</h3>
           <ul class="text-sm text-gray-300 space-y-1.5">
             <li>• CCNA: Fundamentos de Conmutación (Cisco)</li>
@@ -279,6 +330,7 @@
       </div>
     </section>
 
+    <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="space-y-8 py-8 border-t border-gray-800">
       
       <div class="text-center space-y-2">
@@ -289,11 +341,11 @@
       </div>
 
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://wa.me/50671807166?text=Hola%20Eduardo,%20me%20interesa%20contactarte" target="_blank" class="bg-green-600/20 text-green-400 border border-green-500/40 px-5 py-2.5 rounded-lg hover:bg-green-600/30 transition-all flex items-center gap-2 font-bold text-sm">
-          <span>💬</span> WhatsApp: (506) 7180-7166
+        <a href="https://wa.me/50670532547?text=Hola%20Eduardo,%20me%20interesa%20contactarte" target="_blank" class="bg-green-600/20 text-green-400 border border-green-500/40 px-5 py-2.5 rounded-lg hover:bg-green-600/30 transition-all flex items-center gap-2 font-bold text-sm">
+          <span>💬</span> WhatsApp: (506) 7053-2547
         </a>
         <a href="mailto:ramirezreynosae@gmail.com" class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/40 px-5 py-2.5 rounded-lg hover:bg-cyber-neon/20 transition-all flex items-center gap-2 text-sm font-bold">
-          <span>✉️</span> Correo Electrónico
+          <span>✉️</span> ramirezreynosae@gmail.com
         </a>
         <a href="https://linkedin.com/in/eduardo-ramirez-dev" target="_blank" class="bg-cyber-card border border-gray-700 text-gray-300 px-5 py-2.5 rounded-lg hover:border-cyber-neon transition-all flex items-center gap-2 text-sm">
           LinkedIn
@@ -334,7 +386,7 @@
   </footer>
 
   <!-- Botón Flotante Descargar CV -->
-  <a href="CV_Eduardo_Ramirez.pdf" download="CV_Eduardo_Ramirez.pdf" class="fixed bottom-6 right-6 z-50 bg-cyber-neon/10 hover:bg-cyber-neon text-cyber-neon hover:text-black border border-cyber-neon px-4 py-3 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2 font-bold text-xs md:text-sm backdrop-blur-md">
+  <a href="Eduardo_Ramirez_CV.pdf" download="Eduardo_Ramirez_CV.pdf" class="fixed bottom-6 right-6 z-50 bg-cyber-bg/90 hover:bg-cyber-neon text-cyber-neon hover:text-black border border-cyber-neon px-4 py-3 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2 font-bold text-xs md:text-sm backdrop-blur-md">
     <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
       <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
     </svg>
