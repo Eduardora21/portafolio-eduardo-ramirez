@@ -28,14 +28,12 @@
     }
   </script>
   <style>
-    /* Cuadrícula cyber sutil en el fondo */
     .cyber-grid {
       background-size: 40px 40px;
       background-image: 
         linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
     }
-    /* Scrollbar personalizada para la terminal */
     #terminal-screen::-webkit-scrollbar {
       width: 6px;
     }
@@ -76,22 +74,18 @@
 
     <!-- SECCIÓN CONSOLA INTERACTIVA -->
     <section id="consola" class="space-y-6">
-      <div class="text-center space-y-3">
-        <div class="inline-block px-3 py-1 rounded-full bg-cyber-purple/10 border border-cyber-purple/30 text-purple-300 text-xs mb-1">
-          Full-Stack Web &amp; AI Integration
-        </div>
+      <div class="text-center space-y-2">
         <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-blue-400 to-cyber-purple">
           Eduardo Ramírez
         </h1>
-        <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto">
-          Desarrollador Web Junior | Estudiante de Ingeniería en Sistemas de la Computación
+        <p class="text-gray-400 text-base md:text-lg">
+          Desarrollador Web Junior | Estudiante de Ingeniería en Sistemas
         </p>
       </div>
 
       <!-- Ventana estilo Terminal -->
       <div class="bg-cyber-card border border-cyber-neon/30 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.12)]">
         
-        <!-- Barra superior de ventana -->
         <div class="bg-black/90 px-4 py-2.5 border-b border-gray-800 flex items-center justify-between">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
@@ -107,7 +101,6 @@
             <span class="text-gray-400 py-1 font-bold">Comandos:</span>
             <button onclick="runCommand('sobre-mi')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">sobre-mi</button>
             <button onclick="runCommand('proyectos')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">proyectos</button>
-            <button onclick="runCommand('vita-sanctorum')" class="bg-cyber-purple/20 hover:bg-cyber-purple/35 text-purple-300 border border-purple-500/40 px-2.5 py-1 rounded transition-all">vita-sanctorum ✨</button>
             <button onclick="runCommand('experiencia')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">experiencia</button>
             <button onclick="runCommand('habilidades')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">habilidades</button>
             <button onclick="runCommand('certificaciones')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">certificaciones</button>
@@ -115,12 +108,12 @@
           </div>
 
           <div id="terminal-screen" class="bg-black/80 border border-gray-800 rounded-lg p-4 text-xs md:text-sm font-mono h-64 overflow-y-auto space-y-2.5 leading-relaxed">
-            <p class="text-gray-400">Bienvenido al sistema v2.6. Haz clic en un comando o escribe <span class="text-cyber-neon">'ayuda'</span> para explorar.</p>
+            <p class="text-gray-400">Bienvenido. Escribe un comando o usa las opciones de arriba para navegar.</p>
           </div>
 
           <div class="flex items-center bg-black/70 border border-cyber-neon/40 focus-within:border-cyber-neon focus-within:shadow-[0_0_10px_rgba(0,240,255,0.2)] rounded-lg px-3 py-2 transition-all">
-            <span class="text-cyber-neon font-bold mr-2">eduardo@dev:~$</span>
-            <input type="text" id="command-input" autocomplete="off" class="bg-transparent text-cyber-text w-full focus:outline-none text-xs md:text-sm" placeholder="Escribe un comando (ej. proyectos, vita-sanctorum, ayuda)...">
+            <span class="text-cyber-neon font-bold mr-2">&gt;</span>
+            <input type="text" id="command-input" autocomplete="off" class="bg-transparent text-cyber-text w-full focus:outline-none text-xs md:text-sm" placeholder="Escribe un comando (ej. ayuda)...">
           </div>
         </div>
       </div>
@@ -142,9 +135,6 @@
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
               <img src="img/index.png" alt="Vita Sanctorum - Santoral Católico" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm border border-cyber-neon/50 text-cyber-neon text-[10px] px-2.5 py-1 rounded-full font-bold">
-                ✨ Destacado
-              </div>
             </div>
             <div class="p-6 space-y-3">
               <div class="flex items-center justify-between gap-2">
@@ -165,7 +155,7 @@
           </div>
           <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
             <a href="https://vita-sanctorum.kesug.com/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Visitar plataforma en vivo <span>↗</span>
+              Ver sitio web <span>→</span>
             </a>
           </div>
         </div>
@@ -190,7 +180,7 @@
           </div>
           <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
             <a href="https://ramirez-contratista.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver sitio web <span>↗</span>
+              Ver sitio web <span>→</span>
             </a>
           </div>
         </div>
@@ -393,6 +383,119 @@
     <span>Descargar CV</span>
   </a>
 
-  <script src="script.js"></script>
+  <!-- Lógica de Consola Actualizada (Incluida aquí para evitar problemas de caché) -->
+  <script>
+    const terminalScreen = document.getElementById('terminal-screen');
+    const commandInput = document.getElementById('command-input');
+
+    const commandsData = {
+      'ayuda': `
+        <div class="text-gray-300 space-y-1">
+          <p class="text-green-400 font-bold">Comandos disponibles:</p>
+          <p>• <span class="text-cyber-neon">sobre-mi</span>        - Perfil profesional y objetivos</p>
+          <p>• <span class="text-cyber-neon">proyectos</span>       - Listado completo de proyectos desarrollados</p>
+          <p>• <span class="text-cyber-neon">experiencia</span>     - Trayectoria y formación académica</p>
+          <p>• <span class="text-cyber-neon">habilidades</span>     - Stack tecnológico y herramientas</p>
+          <p>• <span class="text-cyber-neon">certificaciones</span> - Credenciales Cisco, Scrum e idiomas</p>
+          <p>• <span class="text-red-400">limpiar</span>         - Limpia la pantalla de la consola</p>
+        </div>
+      `,
+      'sobre-mi': `
+        <div class="text-gray-300 space-y-1">
+          <p class="text-green-400 font-bold">Perfil Profesional:</p>
+          <p>Soy Eduardo Ramírez, estudiante de Ingeniería en Sistemas de la Computación (Universidad Fidélitas) enfocado en desarrollo web Full-Stack.</p>
+          <p>Construyo sistemas con autenticación, bases de datos relacionales, paneles administrativos e integración de APIs (como Gemini AI).</p>
+        </div>
+      `,
+      'proyectos': `
+        <div class="text-gray-300 space-y-1.5">
+          <p class="text-green-400 font-bold">Proyectos Académicos y Personales:</p>
+          <p>1. <span class="text-white font-bold">Vita Sanctorum:</span> Plataforma web del santoral católico con panel administrativo, PHP + MySQL (PDO) e integración de Gemini AI para reflexiones sobre virtudes.</p>
+          <p>2. <span class="text-white font-bold">Sitio Web Contratista:</span> Aplicación web con panel administrativo, carga de imágenes y transacciones en PHP con PDO.</p>
+          <p>3. <span class="text-white font-bold">Dashboard Deportivo - Invictus Quebradas:</span> Sistema web Full-Stack en Node/Express + MySQL, API REST y pizarra táctica.</p>
+          <p>4. <span class="text-white font-bold">English Quest:</span> Plataforma web gamificada para aprendizaje de inglés en niños con PHP + MySQL (PDO).</p>
+        </div>
+      `,
+      'experiencia': `
+        <div class="text-gray-300 space-y-1">
+          <p class="text-green-400 font-bold">Experiencia y Educación:</p>
+          <p>• <span class="text-white font-bold">Pasantía UI/UX - Beta Tech</span> (Oct 2022 - Dic 2022): Prototipos en Penpot y flujos de usuario.</p>
+          <p>• <span class="text-white font-bold">Ing. en Sistemas de la Computación</span> - Universidad Fidélitas (2023 - En curso).</p>
+          <p>• <span class="text-white font-bold">Técnico Medio en Informática</span> - IPEC Santo Domingo (2021 - 2022).</p>
+        </div>
+      `,
+      'habilidades': `
+        <div class="text-gray-300 space-y-1">
+          <p class="text-green-400 font-bold">Stack Tecnológico:</p>
+          <p>• <span class="text-white">Frontend:</span> HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap.</p>
+          <p>• <span class="text-white">Backend:</span> PHP (PDO), Node.js, Express.js, Java.</p>
+          <p>• <span class="text-white">Datos & Herramientas:</span> MySQL, SQL, Git/GitHub, Docker, APIs REST, Gemini AI, Scrum.</p>
+        </div>
+      `,
+      'certificaciones': `
+        <div class="text-gray-300 space-y-1">
+          <p class="text-green-400 font-bold">Certificaciones e Idiomas:</p>
+          <p>• CCNA: Fundamentos de Conmutación, Enrutamiento y Redes Inalámbricas (Cisco)</p>
+          <p>• Introduction to Networks & Introduction to IoT (Cisco)</p>
+          <p>• Scrum Fundamentals Certified (ScrumStudy)</p>
+          <p>• Idiomas: Español (Nativo) | Inglés (Intermedio B1)</p>
+        </div>
+      `
+    };
+
+    function runCommand(cmd) {
+      const cleanCmd = cmd.trim().toLowerCase();
+      if (!cleanCmd) return;
+
+      if (cleanCmd === 'limpiar' || cleanCmd === 'clear') {
+        terminalScreen.innerHTML = '<p class="text-gray-400">Bienvenido. Escribe un comando o usa las opciones de arriba para navegar.</p>';
+        return;
+      }
+
+      const userLine = document.createElement('div');
+      userLine.innerHTML = `<span class="text-gray-400">&gt; ${cleanCmd}</span>`;
+      terminalScreen.appendChild(userLine);
+
+      const responseLine = document.createElement('div');
+      if (commandsData[cleanCmd]) {
+        responseLine.innerHTML = commandsData[cleanCmd];
+      } else {
+        responseLine.innerHTML = `<p class="text-red-400">Comando no reconocido: '${cleanCmd}'. Escribe <span class="text-cyber-neon">'ayuda'</span> para ver la lista.</p>`;
+      }
+
+      terminalScreen.appendChild(responseLine);
+      terminalScreen.scrollTop = terminalScreen.scrollHeight;
+    }
+
+    if (commandInput) {
+      commandInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          runCommand(commandInput.value);
+          commandInput.value = '';
+        }
+      });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = this.name.value;
+        const email = this.email.value;
+        const message = this.message.value;
+
+        const subject = encodeURIComponent(`Contacto Portafolio - ${name}`);
+        const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${message}`);
+        
+        formStatus.textContent = 'Abriendo cliente de correo...';
+        formStatus.className = 'text-xs text-center font-bold text-cyber-neon block';
+        
+        window.location.href = `mailto:ramirezreynosae@gmail.com?subject=${subject}&body=${body}`;
+        this.reset();
+      });
+    }
+  </script>
 </body>
 </html>
