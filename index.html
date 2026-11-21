@@ -125,7 +125,7 @@
         <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
           <span>&lt;/&gt;</span> Proyectos Destacados
         </h2>
-        <span class="text-xs text-gray-500">4 aplicaciones desplegadas / en repositorio</span>
+        <span class="text-xs text-gray-500">5 aplicaciones desplegadas / en repositorio</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -160,7 +160,36 @@
           </div>
         </div>
 
-        <!-- 2. Sitio Web Contratista -->
+        <!-- 2. Reciclaje Cartago (Nuevo Proyecto) -->
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
+          <div>
+            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
+              <img src="img/reciclaje_cartago.png" alt="Sistema Municipal de Reciclaje Cartago" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Gestión de Reciclaje - Cartago</h3>
+                <span class="text-[10px] bg-green-500/10 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-semibold">Gestión Municipal</span>
+              </div>
+              <p class="text-gray-400 text-xs leading-relaxed">
+                Plataforma web municipal para la gestión de reciclaje y solicitudes de recolección de residuos valorizables en el cantón de Cartago. Permite registrar solicitudes ciudadanas, clasificar materiales y dar seguimiento administrativo a las rutas y estados de atención.
+              </p>
+              <div class="flex flex-wrap gap-1.5 text-[11px]">
+                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
+                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
+                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">JavaScript</span>
+                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
+            <a href="https://reciclajecartago.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
+              Ver sitio web <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Sitio Web Contratista -->
         <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
@@ -185,7 +214,7 @@
           </div>
         </div>
 
-        <!-- 3. Dashboard Deportivo -->
+        <!-- 4. Dashboard Deportivo -->
         <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
@@ -211,8 +240,8 @@
           </div>
         </div>
 
-        <!-- 4. English Quest -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
+        <!-- 5. English Quest -->
+        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group md:col-span-2 md:max-w-md md:mx-auto md:w-full">
           <div>
             <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
               <img src="img/english-quest.jpg" alt="English Quest" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
@@ -383,7 +412,7 @@
     <span>Descargar CV</span>
   </a>
 
-  <!-- Lógica de Consola Actualizada (Incluida aquí para evitar problemas de caché) -->
+  <!-- Lógica de Consola Actualizada -->
   <script>
     const terminalScreen = document.getElementById('terminal-screen');
     const commandInput = document.getElementById('command-input');
@@ -411,9 +440,17 @@
         <div class="text-gray-300 space-y-1.5">
           <p class="text-green-400 font-bold">Proyectos Académicos y Personales:</p>
           <p>1. <span class="text-white font-bold">Vita Sanctorum:</span> Plataforma web del santoral católico con panel administrativo, PHP + MySQL (PDO) e integración de Gemini AI para reflexiones sobre virtudes.</p>
-          <p>2. <span class="text-white font-bold">Sitio Web Contratista:</span> Aplicación web con panel administrativo, carga de imágenes y transacciones en PHP con PDO.</p>
-          <p>3. <span class="text-white font-bold">Dashboard Deportivo - Invictus Quebradas:</span> Sistema web Full-Stack en Node/Express + MySQL, API REST y pizarra táctica.</p>
-          <p>4. <span class="text-white font-bold">English Quest:</span> Plataforma web gamificada para aprendizaje de inglés en niños con PHP + MySQL (PDO).</p>
+          <p>2. <span class="text-white font-bold">Gestión de Reciclaje - Cartago:</span> Plataforma web municipal para registro de solicitudes de recolección, clasificación de materiales y seguimiento administrativo en el cantón de Cartago.</p>
+          <p>3. <span class="text-white font-bold">Sitio Web Contratista:</span> Aplicación web con panel administrativo, carga de imágenes y transacciones en PHP con PDO.</p>
+          <p>4. <span class="text-white font-bold">Dashboard Deportivo - Invictus Quebradas:</span> Sistema web Full-Stack en Node/Express + MySQL, API REST y pizarra táctica.</p>
+          <p>5. <span class="text-white font-bold">English Quest:</span> Plataforma web gamificada para aprendizaje de inglés en niños con PHP + MySQL (PDO).</p>
+        </div>
+      `,
+      'reciclaje': `
+        <div class="text-gray-300 space-y-1 border-l-2 border-green-500 pl-3">
+          <p class="text-green-400 font-bold">♻️ Gestión de Reciclaje - Cartago</p>
+          <p>Sistema web municipal desarrollado en PHP + MySQL (PDO) y Bootstrap para gestionar solicitudes ciudadanas de recolección de residuos valorizables y control de rutas en Cartago.</p>
+          <p>Demo: <a href="https://reciclajecartago.great-site.net/" target="_blank" class="text-cyber-neon underline">https://reciclajecartago.great-site.net/</a></p>
         </div>
       `,
       'experiencia': `
