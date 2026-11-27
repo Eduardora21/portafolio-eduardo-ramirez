@@ -12,9 +12,9 @@ const projectsData = [
     liveUrl: 'https://vita-sanctorum.kesug.com/',
     repoUrl: null,
     summary: 'Plataforma web para consultar biografías, festividades y patronazgos de santos, con panel administrativo CRUD e integración de Gemini AI para reflexiones.',
-    tags: ['PHP 8', 'MySQL (PDO)', 'JavaScript', 'Gemini API', 'Auth Admin'],
+    tags: ['PHP 8', 'MySQL (PDO)', 'JavaScript', 'CSS3', 'Gemini API'],
     architecture: [
-      'Frontend (HTML/JS) solicita reflexión espiritual vía Fetch API',
+      'Frontend (HTML/CSS/JS) solicita reflexión espiritual vía Fetch API',
       'Endpoint PHP actúa como proxy seguro ocultando la API Key',
       'Conexión a Google Gemini AI para generar contenido contextual',
       'Persistencia en MySQL mediante consultas preparadas PDO'
@@ -58,7 +58,7 @@ const projectsData = [
     liveUrl: 'https://ramirez-contratista.great-site.net/',
     repoUrl: null,
     summary: 'Aplicación web corporativa con autenticación administrativa y gestión de obras civiles con carga de imágenes usando transacciones SQL.',
-    tags: ['PHP', 'MySQL (PDO)', 'Transacciones', 'Auth'],
+    tags: ['PHP', 'MySQL (PDO)', 'Transacciones', 'CSS3'],
     architecture: [
       'Galería pública dinámica alimentada desde base de datos MySQL',
       'Módulo de autenticación con hashing seguro de contraseñas',
@@ -102,7 +102,7 @@ const projectsData = [
     liveUrl: null,
     repoUrl: 'https://github.com/Eduardora21/english-quest',
     summary: 'Plataforma web gamificada para aprendizaje de inglés infantil con control de roles, sistema de XP, niveles, vidas y progreso dinámico.',
-    tags: ['PHP (PDO)', 'MySQL', 'Gamificación', 'Roles'],
+    tags: ['PHP (PDO)', 'MySQL', 'Gamificación', 'CSS3'],
     architecture: [
       'Control de acceso basado en roles (Estudiante / Administrador)',
       'Motor de gamificación: cálculo de experiencia (XP), niveles y vidas',
@@ -203,7 +203,7 @@ function openProjectDrawer(projectId) {
 
   drawerContent.innerHTML = `
     <div class="flex items-center justify-between border-b border-white/10 pb-4">
-      <span class="font-mono text-xs text-cyber-neon">FICHATÉCNICA // ${project.id.toUpperCase()}</span>
+      <span class="font-mono text-xs text-cyber-neon">FICHA TÉCNICA // ${project.id.toUpperCase()}</span>
       <button onclick="closeProjectDrawer()" class="text-slate-400 hover:text-white font-mono text-sm px-2.5 py-1 rounded-lg bg-white/5">✕ Cerrar</button>
     </div>
 
@@ -282,7 +282,7 @@ const staticCommands = {
       <p>• <span class="text-cyber-neon">sobre-mi</span>            - Resumen profesional y enfoque técnico</p>
       <p>• <span class="text-cyber-neon">proyectos</span>           - Lista de los 5 proyectos desarrollados</p>
       <p>• <span class="text-cyber-neon">ver &lt;proyecto&gt;</span>      - Abre la ficha de arquitectura (ej: <span class="text-purple-400">ver vita-sanctorum</span>)</p>
-      <p>• <span class="text-cyber-neon">arquitectura</span>        - Resumen de patrones y prácticas aplicadas</p>
+      <p>• <span class="text-cyber-neon">arquitectura</span>        - Resumen de patrones en PHP y Bases de Datos</p>
       <p>• <span class="text-cyber-neon">habilidades</span>         - Stack tecnológico completo</p>
       <p>• <span class="text-cyber-neon">certificaciones</span>     - Credenciales Cisco e idioma</p>
       <p>• <span class="text-rose-400">limpiar</span>             - Limpia la terminal</p>
@@ -292,35 +292,35 @@ const staticCommands = {
     <div class="text-slate-300 space-y-1">
       <p class="text-emerald-400 font-bold">[PERFIL PROFESIONAL]</p>
       <p>Soy Eduardo Ramírez, estudiante de Ingeniería en Sistemas de la Computación (Universidad Fidélitas).</p>
-      <p>Desarrollo aplicaciones web con PHP (PDO), Node.js/Express, MySQL e integración de APIs REST e IA.</p>
+      <p>Mi enfoque principal está en el desarrollo backend con PHP (PDO), modelado y gestión de bases de datos relacionales (MySQL / PostgreSQL), y creación de interfaces web limpias con JavaScript y CSS.</p>
     </div>
   `,
   'proyectos': `
     <div class="text-slate-300 space-y-1.5">
       <p class="text-emerald-400 font-bold">[5 PROYECTOS EN PORTAFOLIO]</p>
-      <p>1. <span class="text-white font-bold">Vita Sanctorum</span> — PHP, MySQL (PDO), JS, Gemini AI API</p>
+      <p>1. <span class="text-white font-bold">Vita Sanctorum</span> — PHP 8, MySQL (PDO), JS, CSS3, Gemini AI API</p>
       <p>2. <span class="text-white font-bold">Gestión de Reciclaje - Cartago</span> — PHP, MySQL (PDO), Bootstrap</p>
       <p>3. <span class="text-white font-bold">Sitio Web Contratista</span> — PHP, MySQL (PDO), Transacciones</p>
-      <p>4. <span class="text-white font-bold">Dashboard Deportivo Invictus</span> — Node.js, Express, MySQL, API REST</p>
+      <p>4. <span class="text-white font-bold">Dashboard Deportivo Invictus</span> — API REST, MySQL, JavaScript</p>
       <p>5. <span class="text-white font-bold">English Quest</span> — PHP (PDO), MySQL, Sistema Gamificado</p>
       <p class="text-slate-400 pt-1">Tip: escribe <span class="text-cyber-neon">ver reciclaje-cartago</span> o <span class="text-cyber-neon">ver vita-sanctorum</span> para inspeccionar su arquitectura.</p>
     </div>
   `,
   'arquitectura': `
     <div class="text-slate-300 space-y-1">
-      <p class="text-emerald-400 font-bold">[ARQUITECTURA &amp; BUENAS PRÁCTICAS]</p>
+      <p class="text-emerald-400 font-bold">[ARQUITECTURA &amp; BASES DE DATOS]</p>
       <p>• Seguridad SQL mediante consultas preparadas PDO y transacciones atómicas.</p>
-      <p>• Protección de API Keys delegando llamadas a Gemini AI desde endpoints backend en PHP.</p>
-      <p>• Diseño de APIs REST desacopladas con Node.js y Express.</p>
+      <p>• Diseño de esquemas relacionales normalizados en MySQL y PostgreSQL.</p>
+      <p>• Protección de API Keys delegando llamadas externas (como Gemini AI) desde endpoints en PHP.</p>
+      <p>• Separación modular de estilos CSS y lógica JavaScript en el cliente.</p>
     </div>
   `,
   'habilidades': `
     <div class="text-slate-300 space-y-1">
       <p class="text-emerald-400 font-bold">[STACK TECNOLÓGICO]</p>
-      <p>• <span class="text-white">Lenguajes:</span> JavaScript, PHP, Java, SQL</p>
-      <p>• <span class="text-white">Frontend:</span> HTML5, CSS3, Tailwind CSS, Bootstrap</p>
-      <p>• <span class="text-white">Backend/DB:</span> Node.js, Express.js, MySQL, PDO</p>
-      <p>• <span class="text-white">Tools:</span> Git, GitHub, Docker, APIs REST, Gemini AI, Scrum</p>
+      <p>• <span class="text-white">Backend &amp; Datos:</span> PHP 8 (PDO), MySQL, PostgreSQL, SQL, Java</p>
+      <p>• <span class="text-white">Frontend &amp; Estilos:</span> JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Bootstrap</p>
+      <p>• <span class="text-white">Herramientas:</span> Git, GitHub, Docker, APIs REST, Gemini AI, Scrum</p>
     </div>
   `,
   'certificaciones': `
@@ -355,7 +355,6 @@ function runCommand(rawCmd) {
 
   appendTerminalLine(`<span class="text-cyber-neon font-bold">&gt;</span> <span class="text-white">${cleanCmd}</span>`);
 
-  // Comando dinámico: ver <id-proyecto>
   if (cleanCmd.startsWith('ver ')) {
     const slug = cleanCmd.replace('ver ', '').trim();
     const found = projectsData.find(p => p.id === slug);
@@ -430,7 +429,6 @@ function initSpotlight() {
   });
 }
 
-// Animación al hacer scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -441,7 +439,6 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Formulario de contacto
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
@@ -463,12 +460,10 @@ if (contactForm) {
   });
 }
 
-// Inicialización al cargar
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects('all');
   initSpotlight();
   
-  // Mensaje inicial en terminal
-  appendTerminalLine(`<p class="text-slate-400">Sistema listo. <span class="text-cyber-neon">5 proyectos</span> indexados (incluyendo <span class="text-white">Vita Sanctorum</span> y <span class="text-white">Reciclaje Cartago</span>).</p>`);
+  appendTerminalLine(`<p class="text-slate-400">Sistema listo. <span class="text-cyber-neon">5 proyectos</span> indexados con enfoque en PHP, SQL, JS y CSS.</p>`);
   appendTerminalLine(`<p class="text-slate-500">Escribe <span class="text-cyber-neon">ayuda</span> o haz clic en un comando superior.</p>`);
 });
