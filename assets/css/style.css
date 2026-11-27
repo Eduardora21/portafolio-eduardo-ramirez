@@ -1,0 +1,105 @@
+/* Fondo con cuadrícula técnica sutil */
+.cyber-grid {
+  background-size: 44px 44px;
+  background-image:
+    linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #09090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Botones de comandos rápidos en terminal */
+.cmd-pill {
+  background-color: rgba(0, 240, 255, 0.08);
+  color: #00f0ff;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+.cmd-pill:hover {
+  background-color: rgba(0, 240, 255, 0.2);
+  border-color: #00f0ff;
+}
+
+/* Filtros de proyectos */
+.filter-btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.6rem;
+  background-color: #111119;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  color: #ffffff;
+  border-color: rgba(0, 240, 255, 0.4);
+}
+.filter-btn.active {
+  background-color: rgba(0, 240, 255, 0.15);
+  color: #00f0ff;
+  border-color: #00f0ff;
+  font-weight: 700;
+}
+
+/* Badges del stack */
+.tech-tag {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.tech-tag:hover {
+  border-color: rgba(0, 240, 255, 0.5);
+  color: #00f0ff;
+  transform: translateY(-1px);
+}
+
+/* Efecto Spotlight en tarjetas Bento */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 240, 255, 0.07),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Animación Reveal al hacer scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

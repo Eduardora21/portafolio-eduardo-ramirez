@@ -3,23 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eduardo Ramírez | Desarrollador Web Junior</title>
+  <title>Eduardo Ramírez | Desarrollador Web Full-Stack Junior</title>
   
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=2">
-  <link rel="shortcut icon" href="favicon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png?v=3">
+  <link rel="shortcut icon" href="assets/img/favicon.png?v=3">
 
+  <!-- Google Fonts: Plus Jakarta Sans (Lectura) + JetBrains Mono (Código/Terminal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
           colors: {
             cyber: {
-              bg: '#0a0a0f',
-              card: '#12121a',
+              bg: '#09090e',
+              card: '#111119',
+              elevated: '#181824',
               neon: '#00f0ff',
-              purple: '#7000ff',
+              purple: '#7c3aed',
               text: '#e2e8f0'
             }
           }
@@ -27,280 +38,255 @@
       }
     }
   </script>
-  <style>
-    .cyber-grid {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-    }
-    #terminal-screen::-webkit-scrollbar {
-      width: 6px;
-    }
-    #terminal-screen::-webkit-scrollbar-track {
-      background: #09090d;
-    }
-    #terminal-screen::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 3px;
-    }
-    #terminal-screen::-webkit-scrollbar-thumb:hover {
-      background: #00f0ff;
-    }
-  </style>
-</head>
-<body class="bg-cyber-bg cyber-grid text-cyber-text font-mono min-h-screen flex flex-col selection:bg-cyber-neon selection:text-black">
 
-  <nav class="sticky top-0 z-50 bg-cyber-bg/85 backdrop-blur-md border-b border-cyber-neon/20 px-6 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <a href="#consola" class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-cyber-purple hover:opacity-80 transition-opacity">
-        &lt;ER /&gt;
+  <!-- Estilos externos -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cyber-bg cyber-grid text-cyber-text font-sans min-h-screen flex flex-col selection:bg-cyber-neon selection:text-black overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 bg-cyber-bg/80 backdrop-blur-md border-b border-white/10 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <a href="#inicio" class="font-mono text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon to-purple-400 hover:opacity-80 transition-opacity">
+          &lt;ER /&gt;
+        </a>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Disponible
+        </span>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-300">
+        <a href="#inicio" class="hover:text-cyber-neon transition-colors">Workspace</a>
+        <a href="#proyectos" class="hover:text-cyber-neon transition-colors">Proyectos</a>
+        <a href="#trayectoria" class="hover:text-cyber-neon transition-colors">Trayectoria &amp; Stack</a>
+        <a href="#contacto" class="hover:text-cyber-neon transition-colors">Contacto</a>
+      </div>
+
+      <a href="assets/docs/Eduardo_Ramirez_CV.pdf" download="Eduardo_Ramirez_CV.pdf" class="font-mono text-xs bg-white/5 hover:bg-cyber-neon hover:text-black text-cyber-neon border border-cyber-neon/40 px-3.5 py-2 rounded-lg transition-all font-bold">
+        CV.pdf ↓
       </a>
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/30">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-        Disponible
-      </span>
-    </div>
-    <div class="space-x-6 text-sm text-gray-300 hidden md:block">
-      <a href="#consola" class="hover:text-cyber-neon transition-colors">Consola</a>
-      <a href="#proyectos" class="hover:text-cyber-neon transition-colors">Proyectos</a>
-      <a href="#experiencia" class="hover:text-cyber-neon transition-colors">Experiencia</a>
-      <a href="#habilidades" class="hover:text-cyber-neon transition-colors">Habilidades</a>
-      <a href="#contacto" class="hover:text-cyber-neon transition-colors">Contacto</a>
     </div>
   </nav>
 
-  <div class="max-w-5xl mx-auto px-4 py-10 space-y-20 w-full">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-24 w-full">
 
-    <!-- SECCIÓN CONSOLA INTERACTIVA -->
-    <section id="consola" class="space-y-6">
-      <div class="text-center space-y-2">
-        <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-blue-400 to-cyber-purple">
-          Eduardo Ramírez
+    <!-- 1. HERO ASIMÉTRICO + CONSOLA INTERACTIVA -->
+    <section id="inicio" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+      
+      <!-- Columna Izquierda: Propuesta de valor -->
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+          <span class="text-cyber-neon">●</span> Ingeniería en Sistemas • Costa Rica
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
+          Eduardo <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-neon via-sky-400 to-purple-400">Ramírez</span>
         </h1>
-        <p class="text-gray-400 text-base md:text-lg">
-          Desarrollador Web Junior | Estudiante de Ingeniería en Sistemas
+
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Desarrollador Web Junior enfocado en construir aplicaciones funcionales con <strong class="text-slate-200 font-semibold">PHP, Node.js, bases de datos relacionales</strong> e integración de <strong class="text-slate-200 font-semibold">APIs REST e IA</strong>.
         </p>
-      </div>
 
-      <!-- Ventana estilo Terminal -->
-      <div class="bg-cyber-card border border-cyber-neon/30 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(0,240,255,0.12)]">
-        
-        <div class="bg-black/90 px-4 py-2.5 border-b border-gray-800 flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+        <!-- Mini métricas -->
+        <div class="grid grid-cols-3 gap-3 pt-1">
+          <div class="bg-cyber-card border border-white/10 rounded-xl p-3">
+            <p class="font-mono text-xl font-bold text-cyber-neon">5</p>
+            <p class="text-[11px] text-slate-400">Proyectos Web</p>
           </div>
-          <span class="text-xs text-gray-500">eduardo@portfolio:~/ramirez-dev</span>
-          <span class="text-[10px] text-cyber-neon/70">bash</span>
-        </div>
-
-        <div class="p-5 space-y-4">
-          <div class="flex flex-wrap gap-2 text-xs items-center">
-            <span class="text-gray-400 py-1 font-bold">Comandos:</span>
-            <button onclick="runCommand('sobre-mi')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">sobre-mi</button>
-            <button onclick="runCommand('proyectos')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">proyectos</button>
-            <button onclick="runCommand('experiencia')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">experiencia</button>
-            <button onclick="runCommand('habilidades')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">habilidades</button>
-            <button onclick="runCommand('certificaciones')" class="bg-cyber-neon/10 hover:bg-cyber-neon/25 text-cyber-neon border border-cyber-neon/40 px-2.5 py-1 rounded transition-all">certificaciones</button>
-            <button onclick="runCommand('limpiar')" class="bg-red-500/10 hover:bg-red-500/25 text-red-400 border border-red-500/30 px-2.5 py-1 rounded transition-all ml-auto">limpiar</button>
+          <div class="bg-cyber-card border border-white/10 rounded-xl p-3">
+            <p class="font-mono text-xl font-bold text-purple-400">4</p>
+            <p class="text-[11px] text-slate-400">Certificaciones</p>
           </div>
-
-          <div id="terminal-screen" class="bg-black/80 border border-gray-800 rounded-lg p-4 text-xs md:text-sm font-mono h-64 overflow-y-auto space-y-2.5 leading-relaxed">
-            <p class="text-gray-400">Bienvenido. Escribe un comando o usa las opciones de arriba para navegar.</p>
-          </div>
-
-          <div class="flex items-center bg-black/70 border border-cyber-neon/40 focus-within:border-cyber-neon focus-within:shadow-[0_0_10px_rgba(0,240,255,0.2)] rounded-lg px-3 py-2 transition-all">
-            <span class="text-cyber-neon font-bold mr-2">&gt;</span>
-            <input type="text" id="command-input" autocomplete="off" class="bg-transparent text-cyber-text w-full focus:outline-none text-xs md:text-sm" placeholder="Escribe un comando (ej. ayuda)...">
+          <div class="bg-cyber-card border border-white/10 rounded-xl p-3">
+            <p class="font-mono text-xl font-bold text-emerald-400">B1</p>
+            <p class="text-[11px] text-slate-400">Inglés Técnico</p>
           </div>
         </div>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#proyectos" class="bg-cyber-neon hover:bg-sky-300 text-black font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(0,240,255,0.25)]">
+            Explorar Proyectos
+          </a>
+          <button onclick="copyEmail()" id="copy-email-btn" class="bg-cyber-card hover:bg-cyber-elevated text-slate-200 border border-white/15 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-mono transition-all flex items-center gap-2">
+            <span>📋</span> <span id="copy-email-text">Copiar correo</span>
+          </button>
+        </div>
       </div>
+
+      <!-- Columna Derecha: Terminal Interactiva Avanzada -->
+      <div class="lg:col-span-7 reveal">
+        <div class="bg-cyber-card border border-cyber-neon/30 rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,240,255,0.08)]">
+          
+          <!-- Header Terminal -->
+          <div class="bg-black/90 px-4 py-3 border-b border-white/10 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="font-mono text-xs text-slate-500">eduardo@workspace:~/portfolio</span>
+            <span class="font-mono text-[10px] text-cyber-neon/70">Tab: autocompletar</span>
+          </div>
+
+          <div class="p-4 sm:p-5 space-y-3.5 font-mono">
+            <!-- Botones rápidos -->
+            <div class="flex flex-wrap gap-1.5 text-[11px] items-center">
+              <span class="text-slate-500 mr-1">$</span>
+              <button onclick="runCommand('sobre-mi')" class="cmd-pill">sobre-mi</button>
+              <button onclick="runCommand('proyectos')" class="cmd-pill">proyectos</button>
+              <button onclick="runCommand('arquitectura')" class="cmd-pill">arquitectura</button>
+              <button onclick="runCommand('habilidades')" class="cmd-pill">habilidades</button>
+              <button onclick="runCommand('certificaciones')" class="cmd-pill">certificaciones</button>
+              <button onclick="runCommand('limpiar')" class="bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 px-2.5 py-1 rounded-md transition-all ml-auto">limpiar</button>
+            </div>
+
+            <!-- Pantalla -->
+            <div id="terminal-screen" class="bg-black/85 border border-white/10 rounded-xl p-4 text-xs h-64 overflow-y-auto space-y-2.5 leading-relaxed">
+              <!-- Se inicializa con animación desde app.js -->
+            </div>
+
+            <!-- Input con autocompletado -->
+            <div class="flex items-center bg-black/70 border border-white/15 focus-within:border-cyber-neon rounded-xl px-3.5 py-2.5 transition-all">
+              <span class="text-cyber-neon font-bold mr-2 text-xs">&gt;</span>
+              <input type="text" id="command-input" autocomplete="off" class="bg-transparent text-slate-100 w-full focus:outline-none text-xs" placeholder="Escribe 'ayuda', 'proyectos' o 'ver vita-sanctorum'...">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <!-- SECCIÓN PROYECTOS -->
-    <section id="proyectos" class="space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-        <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
-          <span>&lt;/&gt;</span> Proyectos Destacados
-        </h2>
-        <span class="text-xs text-gray-500">5 aplicaciones desplegadas / en repositorio</span>
+    <!-- 2. PROYECTOS CON FILTROS Y DRAWER DE ARQUITECTURA -->
+    <section id="proyectos" class="space-y-8 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <span class="font-mono text-xs text-cyber-neon uppercase tracking-wider">Portafolio Técnico</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Proyectos Destacados</h2>
+        </div>
+
+        <!-- Filtros dinámicos -->
+        <div id="project-filters" class="flex flex-wrap gap-2 font-mono text-xs">
+          <button data-filter="all" class="filter-btn active">Todos (5)</button>
+          <button data-filter="php" class="filter-btn">PHP &amp; MySQL</button>
+          <button data-filter="node" class="filter-btn">Node.js &amp; API</button>
+          <button data-filter="ai" class="filter-btn">IA &amp; Gamificación</button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- 1. Vita Sanctorum -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
-          <div>
-            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/index.png" alt="Vita Sanctorum - Santoral Católico" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Vita Sanctorum</h3>
-                <span class="text-[10px] bg-cyber-purple/20 text-purple-300 border border-purple-500/40 px-2 py-0.5 rounded-full font-semibold">Gemini AI</span>
-              </div>
-              <p class="text-gray-400 text-xs leading-relaxed">
-                Plataforma web del santoral católico para consultar biografías, festividades y patronazgos. Incluye panel administrativo para gestionar registros e imágenes, autenticación segura e integración de Gemini AI mediante endpoint PHP para generar reflexiones sobre virtudes y enseñanzas.
-              </p>
-              <div class="flex flex-wrap gap-1.5 text-[11px]">
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">JavaScript</span>
-                <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Gemini API</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Auth Admin</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
-            <a href="https://vita-sanctorum.kesug.com/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver sitio web <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 2. Reciclaje Cartago (Nuevo Proyecto) -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
-          <div>
-            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/reciclaje_cartago.png" alt="Sistema Municipal de Reciclaje Cartago" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6 space-y-3">
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Gestión de Reciclaje - Cartago</h3>
-                <span class="text-[10px] bg-green-500/10 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full font-semibold">Gestión Municipal</span>
-              </div>
-              <p class="text-gray-400 text-xs leading-relaxed">
-                Plataforma web municipal para la gestión de reciclaje y solicitudes de recolección de residuos valorizables en el cantón de Cartago. Permite registrar solicitudes ciudadanas, clasificar materiales y dar seguimiento administrativo a las rutas y estados de atención.
-              </p>
-              <div class="flex flex-wrap gap-1.5 text-[11px]">
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">JavaScript</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Bootstrap</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
-            <a href="https://reciclajecartago.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver sitio web <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 3. Sitio Web Contratista -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
-          <div>
-            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/contratista.jpg" alt="Sitio Web Contratista" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6 space-y-3">
-              <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Sitio Web para Contratista</h3>
-              <p class="text-gray-400 text-xs leading-relaxed">
-                Aplicación web con autenticación, panel administrativo y gestión de proyectos con carga de imágenes usando PDO y transacciones en base de datos.
-              </p>
-              <div class="flex flex-wrap gap-1.5 text-[11px]">
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL (PDO)</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Transacciones</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
-            <a href="https://ramirez-contratista.great-site.net/" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver sitio web <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 4. Dashboard Deportivo -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group">
-          <div>
-            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/dashboard.jpg" alt="Dashboard Deportivo" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6 space-y-3">
-              <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">Dashboard Deportivo - Invictus Quebradas</h3>
-              <p class="text-gray-400 text-xs leading-relaxed">
-                Sistema web Full-Stack para la administración de un club de fútbol. Gestión de jugadores, inventario, pagos y pizarra táctica interactiva mediante API REST.
-              </p>
-              <div class="flex flex-wrap gap-1.5 text-[11px]">
-                <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Node.js</span>
-                <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Express.js</span>
-                <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">MySQL</span>
-                <span class="bg-cyber-purple/20 text-purple-300 border border-purple-500/30 px-2 py-0.5 rounded">Bootstrap</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
-            <a href="https://github.com/Eduardora21/invictus-dashboard" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver repositorio GitHub <span>→</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 5. English Quest -->
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/60 rounded-xl overflow-hidden transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.12)] flex flex-col justify-between group md:col-span-2 md:max-w-md md:mx-auto md:w-full">
-          <div>
-            <div class="h-48 bg-black/60 overflow-hidden border-b border-gray-800 relative">
-              <img src="img/english-quest.jpg" alt="English Quest" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="p-6 space-y-3">
-              <h3 class="text-lg font-bold text-white group-hover:text-cyber-neon transition-colors">English Quest</h3>
-              <p class="text-gray-400 text-xs leading-relaxed">
-                Plataforma web gamificada para aprendizaje de inglés en niños con autenticación, roles, sistema de XP, niveles, vidas y progreso dinámico.
-              </p>
-              <div class="flex flex-wrap gap-1.5 text-[11px]">
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">PHP (PDO)</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">MySQL</span>
-                <span class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-2 py-0.5 rounded">Gamificación</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-6 pb-6 pt-2 flex items-center justify-between border-t border-gray-800/60 mt-2">
-            <a href="https://github.com/Eduardora21/english-quest" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-cyber-neon hover:underline font-bold pt-2">
-              Ver repositorio GitHub <span>→</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
+      <!-- Grid dinámico renderizado desde app.js -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
     </section>
 
-    <!-- SECCIÓN EXPERIENCIA -->
-    <section id="experiencia" class="space-y-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
-        <span>💼</span> Experiencia y Educación
-      </h2>
+    <!-- 3. BENTO GRID: TRAYECTORIA, STACK Y CERTIFICACIONES -->
+    <section id="trayectoria" class="space-y-8 reveal">
+      <div>
+        <span class="font-mono text-xs text-purple-400 uppercase tracking-wider">Perfil Ingeniería</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Stack, Educación &amp; Certificaciones</h2>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
         
-        <div class="bg-cyber-card border border-gray-800 hover:border-gray-700 transition-colors p-6 rounded-xl space-y-3">
+        <!-- Bento 1: Stack Tecnológico (7 cols) -->
+        <div class="md:col-span-7 spotlight-card bg-cyber-card border border-white/10 rounded-2xl p-6 space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="text-cyber-neon font-mono">&lt;/&gt;</span> Ecosistema Tecnológico
+            </h3>
+            <span class="font-mono text-[11px] text-slate-500">Full-Stack</span>
+          </div>
+
+          <div class="space-y-4 text-xs">
+            <div>
+              <p class="font-mono text-slate-400 mb-2">Backend &amp; Bases de Datos</p>
+              <div class="flex flex-wrap gap-2 font-mono">
+                <span class="tech-tag">PHP 8 (PDO)</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express.js</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-mono text-slate-400 mb-2">Frontend &amp; UI</p>
+              <div class="flex flex-wrap gap-2 font-mono">
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">Bootstrap</span>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-mono text-slate-400 mb-2">Arquitectura, DevOps &amp; Herramientas</p>
+              <div class="flex flex-wrap gap-2 font-mono">
+                <span class="tech-tag">APIs REST</span>
+                <span class="tech-tag">Gemini AI API</span>
+                <span class="tech-tag">Git &amp; GitHub</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Scrum</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: Certificaciones (5 cols) -->
+        <div class="md:col-span-5 spotlight-card bg-cyber-card border border-white/10 rounded-2xl p-6 space-y-4">
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            <span class="text-purple-400">🏅</span> Certificaciones
+          </h3>
+          <ul class="space-y-3 text-xs">
+            <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+              <p class="font-bold text-slate-100">CCNA: Switching, Routing &amp; Wireless</p>
+              <p class="font-mono text-[11px] text-cyber-neon mt-0.5">Cisco Networking Academy</p>
+            </li>
+            <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+              <p class="font-bold text-slate-100">Introduction to Networks &amp; IoT</p>
+              <p class="font-mono text-[11px] text-cyber-neon mt-0.5">Cisco Networking Academy</p>
+            </li>
+            <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+              <p class="font-bold text-slate-100">Scrum Fundamentals Certified (SFC)</p>
+              <p class="font-mono text-[11px] text-purple-400 mt-0.5">SCRUMstudy</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bento 3: Experiencia (6 cols) -->
+        <div class="md:col-span-6 spotlight-card bg-cyber-card border border-white/10 rounded-2xl p-6 space-y-4">
           <div class="flex justify-between items-start gap-2">
             <div>
-              <h3 class="text-lg font-bold text-white">Pasantía - Beta Tech</h3>
-              <p class="text-xs text-cyber-neon">Diseño UI/UX &amp; Análisis de Requerimientos</p>
+              <span class="font-mono text-[11px] text-emerald-400">Experiencia Práctica</span>
+              <h3 class="text-lg font-bold text-white">Pasantía — Beta Tech</h3>
+              <p class="text-xs text-slate-400">Diseño UI/UX &amp; Análisis de Requerimientos</p>
             </div>
-            <span class="text-xs text-gray-400 border border-gray-700 px-2 py-0.5 rounded shrink-0">Oct 2022 - Dic 2022</span>
+            <span class="font-mono text-[11px] text-slate-400 bg-white/5 px-2.5 py-1 rounded-md">Oct - Dic 2022</span>
           </div>
-          <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
-            <li>Elaboración de prototipos de interfaz en Penpot.</li>
-            <li>Diseño de flujos de usuario para sistema web (rol administrador).</li>
-            <li>Análisis básico de requerimientos y trabajo colaborativo.</li>
+          <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
+            <li>Elaboración de prototipos interactivos de interfaz en Penpot.</li>
+            <li>Diseño de flujos de usuario para módulos administrativos web.</li>
+            <li>Levantamiento de requerimientos y trabajo colaborativo ágil.</li>
           </ul>
         </div>
 
-        <div class="bg-cyber-card border border-gray-800 hover:border-gray-700 transition-colors p-6 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-white">Educación Académica</h3>
-          <div class="space-y-3 text-xs">
-            <div>
-              <p class="font-bold text-cyber-neon">Ingeniería en Sistemas de la Computación</p>
-              <p class="text-gray-400">Universidad Fidélitas (2023 - En curso)</p>
+        <!-- Bento 4: Educación (6 cols) -->
+        <div class="md:col-span-6 spotlight-card bg-cyber-card border border-white/10 rounded-2xl p-6 space-y-4">
+          <div>
+            <span class="font-mono text-[11px] text-cyber-neon">Formación Académica</span>
+            <h3 class="text-lg font-bold text-white">Educación Superior &amp; Técnica</h3>
+          </div>
+          <div class="space-y-3.5 text-xs">
+            <div class="border-l-2 border-cyber-neon pl-3.5 py-0.5">
+              <p class="font-bold text-white">Ingeniería en Sistemas de la Computación</p>
+              <p class="text-slate-400">Universidad Fidélitas • <span class="font-mono text-cyber-neon">2023 - En curso</span></p>
             </div>
-            <div>
-              <p class="font-bold text-gray-200">Técnico Medio en Informática (Desarrollo de Software)</p>
-              <p class="text-gray-400">IPEC de Santo Domingo de Heredia (Feb 2021 - Dic 2022)</p>
+            <div class="border-l-2 border-purple-500 pl-3.5 py-0.5">
+              <p class="font-bold text-slate-200">Técnico Medio en Informática (Desarrollo de Software)</p>
+              <p class="text-slate-400">IPEC Santo Domingo de Heredia • <span class="font-mono">2021 - 2022</span></p>
             </div>
           </div>
         </div>
@@ -308,231 +294,68 @@
       </div>
     </section>
 
-    <!-- SECCIÓN HABILIDADES -->
-    <section id="habilidades" class="space-y-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-cyber-neon flex items-center gap-2">
-        <span>⚡</span> Habilidades y Certificaciones
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Lenguajes &amp; Frontend</h3>
-          <ul class="text-sm text-gray-300 space-y-1.5">
-            <li>• Java, JavaScript, PHP</li>
-            <li>• HTML5, CSS3</li>
-            <li>• Tailwind CSS, Bootstrap</li>
-            <li>• Diseño Responsivo</li>
-          </ul>
-        </div>
-
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Backend &amp; Herramientas</h3>
-          <ul class="text-sm text-gray-300 space-y-1.5">
-            <li>• Node.js / Express.js</li>
-            <li>• MySQL / SQL / PDO</li>
-            <li>• GitHub / GitHub Pages / Docker</li>
-            <li>• APIs REST / Gemini AI / Scrum</li>
-          </ul>
-        </div>
-
-        <div class="bg-cyber-card border border-gray-800 hover:border-cyber-neon/30 transition-colors p-5 rounded-xl space-y-3">
-          <h3 class="text-lg font-bold text-cyber-neon">Certificaciones &amp; Idiomas</h3>
-          <ul class="text-sm text-gray-300 space-y-1.5">
-            <li>• CCNA: Fundamentos de Conmutación (Cisco)</li>
-            <li>• Introduction to Networks &amp; IoT (Cisco)</li>
-            <li>• Scrum Fundamentals Certified</li>
-            <li>• Inglés: Intermedio (B1) / Español: Nativo</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contacto" class="space-y-8 py-8 border-t border-gray-800">
-      
+    <!-- 4. CONTACTO -->
+    <section id="contacto" class="space-y-8 py-8 border-t border-white/10 reveal">
       <div class="text-center space-y-2">
-        <h2 class="text-2xl md:text-3xl font-bold text-white">¿Hablamos sobre un proyecto?</h2>
-        <p class="text-gray-400 text-sm max-w-md mx-auto">
-          Envíame un mensaje directo o contáctame por mis redes oficiales.
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">¿Hablamos sobre una oportunidad o proyecto?</h2>
+        <p class="text-slate-400 text-sm max-w-lg mx-auto">
+          Disponible para posiciones como Desarrollador Web Junior o pasantías de ingeniería de software.
         </p>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://wa.me/50670532547?text=Hola%20Eduardo,%20me%20interesa%20contactarte" target="_blank" class="bg-green-600/20 text-green-400 border border-green-500/40 px-5 py-2.5 rounded-lg hover:bg-green-600/30 transition-all flex items-center gap-2 font-bold text-sm">
+      <div class="flex flex-wrap justify-center gap-3 font-mono text-xs sm:text-sm">
+        <a href="https://wa.me/50670532547?text=Hola%20Eduardo,%20vi%20tu%20portafolio%20y%20me%20interesa%20contactarte" target="_blank" class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-5 py-3 rounded-xl hover:bg-emerald-500/20 transition-all flex items-center gap-2 font-bold">
           <span>💬</span> WhatsApp: (506) 7053-2547
         </a>
-        <a href="mailto:ramirezreynosae@gmail.com" class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/40 px-5 py-2.5 rounded-lg hover:bg-cyber-neon/20 transition-all flex items-center gap-2 text-sm font-bold">
+        <a href="mailto:ramirezreynosae@gmail.com" class="bg-cyber-neon/10 text-cyber-neon border border-cyber-neon/30 px-5 py-3 rounded-xl hover:bg-cyber-neon/20 transition-all flex items-center gap-2 font-bold">
           <span>✉️</span> ramirezreynosae@gmail.com
         </a>
-        <a href="https://linkedin.com/in/eduardo-ramirez-dev" target="_blank" class="bg-cyber-card border border-gray-700 text-gray-300 px-5 py-2.5 rounded-lg hover:border-cyber-neon transition-all flex items-center gap-2 text-sm">
-          LinkedIn
+        <a href="https://linkedin.com/in/eduardo-ramirez-dev" target="_blank" class="bg-cyber-card border border-white/15 text-slate-200 px-5 py-3 rounded-xl hover:border-cyber-neon transition-all flex items-center gap-2">
+          LinkedIn ↗
         </a>
       </div>
 
-      <div class="max-w-xl mx-auto bg-cyber-card border border-gray-800 rounded-xl p-6 shadow-lg space-y-4">
-        <h3 class="text-lg font-bold text-cyber-neon text-center mb-4">Enviar Mensaje Directo</h3>
+      <div class="max-w-xl mx-auto bg-cyber-card border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl space-y-4">
+        <h3 class="text-base font-bold text-white text-center">Enviar Mensaje Directo</h3>
         
-        <form id="contact-form" class="space-y-4">
+        <form id="contact-form" class="space-y-4 text-xs sm:text-sm">
           <div>
-            <label class="block text-xs text-gray-400 mb-1">Nombre</label>
-            <input type="text" name="name" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+            <label class="block text-xs font-mono text-slate-400 mb-1.5">Nombre</label>
+            <input type="text" name="name" required class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyber-neon transition-colors">
           </div>
           <div>
-            <label class="block text-xs text-gray-400 mb-1">Correo Electrónico</label>
-            <input type="email" name="email" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon">
+            <label class="block text-xs font-mono text-slate-400 mb-1.5">Correo Electrónico</label>
+            <input type="email" name="email" required class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyber-neon transition-colors">
           </div>
           <div>
-            <label class="block text-xs text-gray-400 mb-1">Mensaje</label>
-            <textarea name="message" rows="4" required class="w-full bg-black/60 border border-gray-800 rounded-lg p-2.5 text-sm text-cyber-text focus:outline-none focus:border-cyber-neon"></textarea>
+            <label class="block text-xs font-mono text-slate-400 mb-1.5">Mensaje</label>
+            <textarea name="message" rows="4" required class="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-cyber-neon transition-colors resize-none"></textarea>
           </div>
           
-          <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-cyber-neon to-cyber-purple text-black font-bold py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
+          <button type="submit" class="w-full bg-gradient-to-r from-cyber-neon to-purple-500 text-black font-bold py-3 rounded-xl hover:opacity-95 transition-opacity">
             Enviar Mensaje
           </button>
           
-          <div id="form-status" class="text-xs text-center font-bold hidden"></div>
+          <div id="form-status" class="text-xs font-mono text-center font-bold hidden"></div>
         </form>
       </div>
-
     </section>
 
-  </div>
+  </main>
 
-  <footer class="text-center py-4 text-xs text-gray-500 border-t border-gray-900 mt-auto">
-    © 2026 Eduardo Ramírez | Estudiante de Ingeniería en Sistemas. Todos los derechos reservados.
+  <!-- PANEL LATERAL DESLIZANTE (DRAWER DE ARQUITECTURA DE PROYECTO) -->
+  <div id="project-drawer-backdrop" onclick="closeProjectDrawer()" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
+  <aside id="project-drawer" class="fixed top-0 right-0 h-full w-full max-w-lg bg-cyber-card border-l border-cyber-neon/30 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between overflow-y-auto">
+    <div id="drawer-content" class="p-6 sm:p-8 space-y-6">
+      <!-- Se llena dinámicamente desde app.js -->
+    </div>
+  </aside>
+
+  <footer class="text-center py-6 text-xs font-mono text-slate-500 border-t border-white/10 mt-auto">
+    © 2026 Eduardo Ramírez • Ingeniería en Sistemas de la Computación
   </footer>
 
-  <!-- Botón Flotante Descargar CV -->
-  <a href="Eduardo_Ramirez_CV.pdf" download="Eduardo_Ramirez_CV.pdf" class="fixed bottom-6 right-6 z-50 bg-cyber-bg/90 hover:bg-cyber-neon text-cyber-neon hover:text-black border border-cyber-neon px-4 py-3 rounded-full shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center gap-2 font-bold text-xs md:text-sm backdrop-blur-md">
-    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-      <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
-    </svg>
-    <span>Descargar CV</span>
-  </a>
-
-  <!-- Lógica de Consola Actualizada -->
-  <script>
-    const terminalScreen = document.getElementById('terminal-screen');
-    const commandInput = document.getElementById('command-input');
-
-    const commandsData = {
-      'ayuda': `
-        <div class="text-gray-300 space-y-1">
-          <p class="text-green-400 font-bold">Comandos disponibles:</p>
-          <p>• <span class="text-cyber-neon">sobre-mi</span>        - Perfil profesional y objetivos</p>
-          <p>• <span class="text-cyber-neon">proyectos</span>       - Listado completo de proyectos desarrollados</p>
-          <p>• <span class="text-cyber-neon">experiencia</span>     - Trayectoria y formación académica</p>
-          <p>• <span class="text-cyber-neon">habilidades</span>     - Stack tecnológico y herramientas</p>
-          <p>• <span class="text-cyber-neon">certificaciones</span> - Credenciales Cisco, Scrum e idiomas</p>
-          <p>• <span class="text-red-400">limpiar</span>         - Limpia la pantalla de la consola</p>
-        </div>
-      `,
-      'sobre-mi': `
-        <div class="text-gray-300 space-y-1">
-          <p class="text-green-400 font-bold">Perfil Profesional:</p>
-          <p>Soy Eduardo Ramírez, estudiante de Ingeniería en Sistemas de la Computación (Universidad Fidélitas) enfocado en desarrollo web Full-Stack.</p>
-          <p>Construyo sistemas con autenticación, bases de datos relacionales, paneles administrativos e integración de APIs (como Gemini AI).</p>
-        </div>
-      `,
-      'proyectos': `
-        <div class="text-gray-300 space-y-1.5">
-          <p class="text-green-400 font-bold">Proyectos Académicos y Personales:</p>
-          <p>1. <span class="text-white font-bold">Vita Sanctorum:</span> Plataforma web del santoral católico con panel administrativo, PHP + MySQL (PDO) e integración de Gemini AI para reflexiones sobre virtudes.</p>
-          <p>2. <span class="text-white font-bold">Gestión de Reciclaje - Cartago:</span> Plataforma web municipal para registro de solicitudes de recolección, clasificación de materiales y seguimiento administrativo en el cantón de Cartago.</p>
-          <p>3. <span class="text-white font-bold">Sitio Web Contratista:</span> Aplicación web con panel administrativo, carga de imágenes y transacciones en PHP con PDO.</p>
-          <p>4. <span class="text-white font-bold">Dashboard Deportivo - Invictus Quebradas:</span> Sistema web Full-Stack en Node/Express + MySQL, API REST y pizarra táctica.</p>
-          <p>5. <span class="text-white font-bold">English Quest:</span> Plataforma web gamificada para aprendizaje de inglés en niños con PHP + MySQL (PDO).</p>
-        </div>
-      `,
-      'reciclaje': `
-        <div class="text-gray-300 space-y-1 border-l-2 border-green-500 pl-3">
-          <p class="text-green-400 font-bold">♻️ Gestión de Reciclaje - Cartago</p>
-          <p>Sistema web municipal desarrollado en PHP + MySQL (PDO) y Bootstrap para gestionar solicitudes ciudadanas de recolección de residuos valorizables y control de rutas en Cartago.</p>
-          <p>Demo: <a href="https://reciclajecartago.great-site.net/" target="_blank" class="text-cyber-neon underline">https://reciclajecartago.great-site.net/</a></p>
-        </div>
-      `,
-      'experiencia': `
-        <div class="text-gray-300 space-y-1">
-          <p class="text-green-400 font-bold">Experiencia y Educación:</p>
-          <p>• <span class="text-white font-bold">Pasantía UI/UX - Beta Tech</span> (Oct 2022 - Dic 2022): Prototipos en Penpot y flujos de usuario.</p>
-          <p>• <span class="text-white font-bold">Ing. en Sistemas de la Computación</span> - Universidad Fidélitas (2023 - En curso).</p>
-          <p>• <span class="text-white font-bold">Técnico Medio en Informática</span> - IPEC Santo Domingo (2021 - 2022).</p>
-        </div>
-      `,
-      'habilidades': `
-        <div class="text-gray-300 space-y-1">
-          <p class="text-green-400 font-bold">Stack Tecnológico:</p>
-          <p>• <span class="text-white">Frontend:</span> HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap.</p>
-          <p>• <span class="text-white">Backend:</span> PHP (PDO), Node.js, Express.js, Java.</p>
-          <p>• <span class="text-white">Datos & Herramientas:</span> MySQL, SQL, Git/GitHub, Docker, APIs REST, Gemini AI, Scrum.</p>
-        </div>
-      `,
-      'certificaciones': `
-        <div class="text-gray-300 space-y-1">
-          <p class="text-green-400 font-bold">Certificaciones e Idiomas:</p>
-          <p>• CCNA: Fundamentos de Conmutación, Enrutamiento y Redes Inalámbricas (Cisco)</p>
-          <p>• Introduction to Networks & Introduction to IoT (Cisco)</p>
-          <p>• Scrum Fundamentals Certified (ScrumStudy)</p>
-          <p>• Idiomas: Español (Nativo) | Inglés (Intermedio B1)</p>
-        </div>
-      `
-    };
-
-    function runCommand(cmd) {
-      const cleanCmd = cmd.trim().toLowerCase();
-      if (!cleanCmd) return;
-
-      if (cleanCmd === 'limpiar' || cleanCmd === 'clear') {
-        terminalScreen.innerHTML = '<p class="text-gray-400">Bienvenido. Escribe un comando o usa las opciones de arriba para navegar.</p>';
-        return;
-      }
-
-      const userLine = document.createElement('div');
-      userLine.innerHTML = `<span class="text-gray-400">&gt; ${cleanCmd}</span>`;
-      terminalScreen.appendChild(userLine);
-
-      const responseLine = document.createElement('div');
-      if (commandsData[cleanCmd]) {
-        responseLine.innerHTML = commandsData[cleanCmd];
-      } else {
-        responseLine.innerHTML = `<p class="text-red-400">Comando no reconocido: '${cleanCmd}'. Escribe <span class="text-cyber-neon">'ayuda'</span> para ver la lista.</p>`;
-      }
-
-      terminalScreen.appendChild(responseLine);
-      terminalScreen.scrollTop = terminalScreen.scrollHeight;
-    }
-
-    if (commandInput) {
-      commandInput.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') {
-          runCommand(commandInput.value);
-          commandInput.value = '';
-        }
-      });
-    }
-
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const name = this.name.value;
-        const email = this.email.value;
-        const message = this.message.value;
-
-        const subject = encodeURIComponent(`Contacto Portafolio - ${name}`);
-        const body = encodeURIComponent(`Nombre: ${name}\nCorreo: ${email}\n\nMensaje:\n${message}`);
-        
-        formStatus.textContent = 'Abriendo cliente de correo...';
-        formStatus.className = 'text-xs text-center font-bold text-cyber-neon block';
-        
-        window.location.href = `mailto:ramirezreynosae@gmail.com?subject=${subject}&body=${body}`;
-        this.reset();
-      });
-    }
-  </script>
+  <!-- Lógica externa -->
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
